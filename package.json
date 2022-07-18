@@ -1,0 +1,27 @@
+{
+  "name": "am-ui-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "json-server --watch db.json --port 3004"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abrilquinterog/am-ui-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abrilquinterog/am-ui-test/issues"
+  },
+  "homepage": "https://github.com/abrilquinterog/am-ui-test#readme",
+  "devDependencies": {
+    "json-server": "^0.17.0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
