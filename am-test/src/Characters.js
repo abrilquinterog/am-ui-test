@@ -32,16 +32,17 @@ const Characters = () =>{
     
     return(
         <>
-        <button onClick={()=> handleFilter('false')}>Staff</button>
-        <button onClick={()=> handleFilter('true')}>Students</button>
-
+        <div className="btn-container">
+        <button className="btn-fltr" onClick={()=> handleFilter('true')}>ESTUDIANTES</button>
+        <button className="btn-fltr" onClick={()=> handleFilter('false')}>STAFF</button>
+        </div>
 
         <div className="charactertContainer">
         {characters.map((character)=> (
             <div className="characterCard">
-            <div className="imageContainer"><img className='img' src={character.image} alt='' /></div>
-            <div className="productHeader">
-            <p>{character.name}</p>
+            <div className="imageContainer"><img className='img-pic' src={character.image} alt='' /></div>
+            <div className="descriptionContainer">
+            <h2>{character.name}</h2>
             <p>Cumpleaños:{character.dateOfBirth}</p>
             <p>Género:{character.gender}</p>
             <p>Color de ojos:{character.eyeColour}</p>
