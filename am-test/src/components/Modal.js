@@ -1,7 +1,33 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
+//import axios from "axios";
+import { useState } from "react";
 
 const Modal = ({isOpen, closeModal}) =>{
+    
+    //Capturar valores de inputs
+    const [name, setname] = useState("")
+    const [dateOfBirth, setdateOfBirth] = useState("")
+    const [eyeColour, seteyeColour] = useState("")
+    const [hairColour, sethairColour] = useState("")
+    
+    //Valores de personajes para añadir 
+    const newCharacterData = {
+        name: name,
+        dateOfBirth: dateOfBirth,
+        eyeColour: eyeColour,
+        hairColour: hairColour
+    }
+
+    /*Bosquejo de función con método post para añadir otro personaje
+    function submit (e){
+        axios.post("http://localhost:3004/characters", newCharacterData).then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }*/
 
     const handleModalDialogClick = (e) =>{
         e.stopPropagation();
@@ -20,21 +46,21 @@ const Modal = ({isOpen, closeModal}) =>{
                 
                 <label>
                     NOMBRE<br/>
-                    <input type="text" className="inp"/>
+                    <input onChange={(e)=> setname(e.target.value)} type="text" className="inp" value={name}/>
                 </label>
                 <label>
                     CUMPLEAÑOS <br/>
-                    <input type="text" className="inp"/>
+                    <input onChange={(e)=> setdateOfBirth(e.target.value)} type="text" className="inp" value={dateOfBirth}/>
                 </label>
                 <label>
                     COLOR DE OJOS<br/>
-                    <input type="text" className="inp"/>
+                    <input onChange={(e)=> seteyeColour(e.target.value)} type="text" className="inp" value={eyeColour}/>
                 </label>
                 <label>
                     COLOR DE PELO<br/>
-                    <input type="text" className="inp"/>
+                    <input onChange={(e)=> sethairColour(e.target.value)} type="text" className="inp" value={hairColour}/>
                 </label>
-
+                     
                 <label className='radio'>
                     GÉNERO<br/>
                     <input
@@ -60,7 +86,7 @@ const Modal = ({isOpen, closeModal}) =>{
                     FOTOGRAFÍA   
                     <input type="file" name="picture" />
                 </label>
-                     <input type="submit" value="GUARDAR" className='btn-send'/>
+                     <button type="submit" className='btn-send'>GUARDAR</button>
                 </form>
             </div>
         
