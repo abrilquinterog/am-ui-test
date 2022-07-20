@@ -1,5 +1,7 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 const api="http://localhost:3004"
 
@@ -40,13 +42,17 @@ const Characters = () =>{
         <div className="charactertContainer">
         {characters.map((character)=> (
             <div className="characterCard">
-            <div className="imageContainer"><img className='img-pic' src={character.image} alt='' /></div>
+            <div className="imageContainer" id="imageback"><img className='img-pic' src={character.image} alt='' /></div>
             <div className="descriptionContainer">
-            <h2>{character.name}</h2>
-            <p>Cumpleaños:{character.dateOfBirth}</p>
-            <p>Género:{character.gender}</p>
-            <p>Color de ojos:{character.eyeColour}</p>
-            <p>Color de pelo:{character.hairColour}</p>
+                <div className="card-top">
+                    {character.alive ? "VIVO" : "FINADO"} / {character.hogwartsStudent ? "ESTUDIANTE  ": "STAFF  "}
+                    <FontAwesomeIcon icon={faBookmark} size="2x" className="icon-book" />
+                </div>
+            <h2 className="nameChar">{character.name}</h2>
+            <p><strong>Cumpleaños:</strong> {character.dateOfBirth}</p>
+            <p><strong>Género:</strong> {character.gender}</p>
+            <p><strong>Color de ojos:</strong> {character.eyeColour}</p>
+            <p><strong>Color de pelo:</strong> {character.hairColour}</p>
             </div>
         </div>
         ))}
